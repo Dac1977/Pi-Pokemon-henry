@@ -10,7 +10,7 @@ const initialState ={
 const rootReducer = (state = initialState, action) => {
     switch (action.type){
         case GET_POKEMONS:
-            return{...state, pokemons: action.payload,  allpokemons: action.payload};
+            return{...state, pokemons: action.payload};
         case GET_POKEMON:
             return{...state, pokemon: action.payload};
 

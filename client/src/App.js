@@ -23,7 +23,7 @@ function App() {
       <Route path="/form">
         <Form />
       </Route>
-      <Route path="/detail">
+      <Route path="/detail/:id">
         <Detail />
       </Route>
     </div>
