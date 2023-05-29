@@ -48,7 +48,7 @@ const getPokemonsHandlerById = async (req, res) =>{
     const {id} = req.params;
     const source = isNaN(id) ?"bdd" : "api";
     const getById = await pokeById(id, source);
-      console.log(getById);
+      //console.log(getById);
       res.status(200).json(getById);
     }catch(error){
         res.status(400).json({message:error.message});

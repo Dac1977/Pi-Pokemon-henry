@@ -57,10 +57,22 @@ const getDbInfo = async (name) => {
     });
     const pokemons = allPokemon.map((p) => {
       p.name.includes(nameLow)
-     
       
     });
     return pokemons;
+    // const pok = pokemons.Types.map(p => p.name);
+    // return{
+    //   id: pokemons.id,
+    //   name: pokemons.name,
+    //   img: pokemons.img,
+    //   hp: pokemons.hp,
+    //   attack: pokemons.attack,
+    //   defense: pokemons.defense,
+    //   speed: pokemons.speed,
+    //   height: pokemons.height,
+    //   weight: pokemons.weight,
+    //   types: pok,
+    // }
   } else {
     const allPokemons = await Pokemon.findAll({
       include: {
@@ -155,14 +167,14 @@ const pokeById = async (id, source) => {
       types: pokemonId.types.map((typ) => typ.type.name),
     };
   } else {
-    const pokemonId = await Pokemon.findByPk(
-      id, 
-      {
-        
-      include: 
+    const pokemonId = await Pokemon.findOne({
+        where:{
+          id: id
+        },
+        include: 
         {
+          attributes: ['name'],
           model: Type,
-            attributes: ['name'],
             through: {
               attributes: [],
               },
@@ -171,7 +183,20 @@ const pokeById = async (id, source) => {
     }
   
 );
-    return pokemonId;
+    console.log(pokemonId);
+    const pok = pokemonId.Types.map(p => p.name);
+    return{
+      id: pokemonId.id,
+      name: pokemonId.name,
+      img: pokemonId.img,
+      hp: pokemonId.hp,
+      attack: pokemonId.attack,
+      defense: pokemonId.defense,
+      speed: pokemonId.speed,
+      height: pokemonId.height,
+      weight: pokemonId.weight,
+      types: pok,
+    }
   }
 };
 

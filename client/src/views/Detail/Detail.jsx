@@ -34,7 +34,7 @@ const Detail = ()=>{
                 <h2>Types : {"  "}
                         {!detail.createdInDb ?
                             detail.types + (" ") :
-                            detail.types.map(el => el.name + (" "))
+                            detail.Types + (" ")
                         }
                 </h2>
                 </div>
