@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getPokemon, getPokemons } from '../../redux/actions';
+import { getPokemon } from '../../redux/actions';
+
 
 const Detail = ()=>{
 
@@ -18,7 +19,6 @@ const Detail = ()=>{
     return(
         <>
             <h1>Esta es la vista de Detail</h1>
-            
                 <div>
                 <img src = {detail.img} alt="" width={200} height={200}/>
                 <h1>Name: {detail.name}</h1>
@@ -38,6 +38,7 @@ const Detail = ()=>{
                         }
                 </h2>
                 </div>
+            
         </>
     )
 };
