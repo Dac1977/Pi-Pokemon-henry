@@ -11,7 +11,7 @@ const Detail = () => {
   const detail = useSelector((state) => state.pokemon);
   useEffect(() => {
     dispatch(getPokemon(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   return (
     <>
