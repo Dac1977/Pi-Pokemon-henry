@@ -1,7 +1,13 @@
 .card{
     border: 2px solid rebeccapurple;
     border-radius: 15px;
+    background-color: bisque;
     display:flex;
     flex-direction: column;
-    
+    width: 250px;
+    height: 450px;
+}
+.poke_img {
+    width: 150px;
+    height: 75px;
 }

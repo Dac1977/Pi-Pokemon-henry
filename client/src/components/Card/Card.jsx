@@ -4,9 +4,12 @@ const Card = (props) => {
   return (
     <div className={style.card}>
       {/* <p>image: <img src={props.image} alt=""/></p> */}
-      <p>
-        image: <img src={props.image} alt={props.name}></img>
-      </p>
+
+      <img
+        src={!props.InDb ? props.image + " " : props.imagen + " "}
+        alt={props.name}
+      ></img>
+
       <h2>name: {props.name}</h2>
       {/* <p>types: {props.types}</p> */}
       <h2>Types : {props.types} </h2>

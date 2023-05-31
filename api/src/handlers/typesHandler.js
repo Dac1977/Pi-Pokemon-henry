@@ -1,4 +1,4 @@
-const {getAllTypes} = require('../controllers/typesControllers');
+const { getAllTypes } = require("../controllers/typesControllers");
 
 const getTypesPokemons = async (req, res) => {
   try {
@@ -9,4 +9,4 @@ const getTypesPokemons = async (req, res) => {
   }
 };
 
-module.exports = {getTypesPokemons};
+module.exports = { getTypesPokemons };
