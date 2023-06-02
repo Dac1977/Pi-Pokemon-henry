@@ -167,7 +167,7 @@ const pokeById = async (id, source) => {
     return {
       id: pokemonId.id,
       name: pokemonId.name,
-      img: pokemonId.img,
+      img: pokemonId.imagen,
       hp: pokemonId.hp,
       attack: pokemonId.attack,
       defense: pokemonId.defense,
