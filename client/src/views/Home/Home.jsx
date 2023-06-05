@@ -37,11 +37,11 @@ const Home = () => {
     //   <CardsContainer />
     // </>
     <div className="">
-      {/* {pokemons.length > 0 && (
+      {pokemons.length > 0 && (
         <div className="">
           <NavBar setPage={setPage} types={types} showPerPage={showPerPage} />
         </div>
-      )} */}
+      )}
       {shownPokemons.length > 0 ? (
         <div className={styles.conteinerPagination}>
           <Pagination
