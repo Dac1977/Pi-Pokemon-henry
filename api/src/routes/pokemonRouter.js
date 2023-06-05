@@ -23,7 +23,9 @@ const validate = async (req, res, next) => {
 };
 
 pokemonRouter.get("/", getPokemonHandler);
+pokemonRouter.get("/pokemons", getPokemonHandler); //esto cambie hoy
 pokemonRouter.get("/:id", getPokemonsHandlerById);
+pokemonRouter.get("/?name=", getPokemonHandler);
 pokemonRouter.post("/", validate, createPokemonHandler);
 // pokemonRouter.get('/:idPokemon',(req, res) => {
 //     try{

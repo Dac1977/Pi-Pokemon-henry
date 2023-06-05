@@ -5,7 +5,7 @@ const { where } = require("sequelize");
 const getApiInfo = async (name) => {
   if (!name) {
     const apiData = (
-      await axios.get("https://pokeapi.co/api/v2/pokemon?limit=10")
+      await axios.get("https://pokeapi.co/api/v2/pokemon?limit=120")
     ).data;
     //const data = apiData;
     //console.log("api: ", data);

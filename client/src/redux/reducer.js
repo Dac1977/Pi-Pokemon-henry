@@ -1,14 +1,36 @@
-import { GET_POKEMON, GET_POKEMONS, GET_TYPES, POST_POKE } from "./actions";
+import {
+  GET_ALL_POKEMONS,
+  GET_POKEMON,
+  GET_POKEMONS,
+  GET_POKEMON_BY_ID,
+  GET_TYPES,
+  POST_POKE,
+  GET_POKEMON_BY_NAME,
+  ORDER_BY_ATTACK,
+  ORDER_BY_NAME,
+  FILTER_BY_TYPE,
+  FILTER_BY_CREATED,
+  CLEAR_STATE,
+  RESET_FILTER,
+} from "./actions";
 
 const initialState = {
   pokemons: [],
-  pokemon: [],
-  allpokemons: [],
+  pokemon: {},
+  filtersApi: [],
   types: [],
+  backUp: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_ALL_POKEMONS:
+      return {
+        ...state,
+        pokemons: action.payload,
+        filtersApi: action.payload,
+        backUp: action.payload,
+      };
     case GET_POKEMONS:
       return { ...state, pokemons: action.payload };
     case GET_POKEMON:
@@ -21,6 +43,95 @@ const rootReducer = (state = initialState, action) => {
     case POST_POKE:
       return {
         ...state,
+      };
+    case GET_POKEMON_BY_NAME:
+      return {
+        ...state,
+        pokemon: action.payload,
+      };
+    case GET_POKEMON_BY_ID:
+      return {
+        ...state,
+        pokemon: action.payload,
+      };
+    //Ordenamientos
+
+    case ORDER_BY_NAME:
+      let allPokemons = state.pokemons;
+      let sortedName =
+        action.payload === "asc"
+          ? allPokemons.sort((a, b) => {
+              return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+            })
+          : allPokemons.sort((a, b) => {
+              return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+            });
+      return {
+        ...state,
+        pokemons: sortedName,
+      };
+    case ORDER_BY_ATTACK:
+      const orderAttack = action.payload;
+      if (orderAttack === "AttackAsc")
+        return {
+          ...state,
+          pokemons: state.pokemons.sort((a, b) => b.attack - a.attack),
+        };
+      else if (orderAttack === "AttackDesc")
+        return {
+          ...state,
+          pokemons: state.pokemons.sort((a, b) => a.attack - b.attack),
+        };
+      else {
+        return {
+          ...state,
+        };
+      }
+
+    //Filtros
+
+    case FILTER_BY_TYPE:
+      let type = action.payload;
+      const filteredBy = state.pokemons.filter((p) => p.types.includes(type));
+      if (filteredBy.length > 0) {
+        return {
+          ...state,
+          pokemons: filteredBy,
+        };
+      } else {
+        return {
+          ...state,
+          pokemons: state.pokemons,
+        };
+      }
+
+    case FILTER_BY_CREATED:
+      if (action.payload === "created") {
+        let createds = state.backUp.filter((p) => p.createdInDb);
+        return {
+          ...state,
+          pokemons: createds,
+        };
+      } else if (action.payload === "api") {
+        let api = state.filtersApi.filter((p) => !p.createdInDb);
+        return {
+          ...state,
+          pokemons: api,
+        };
+      }
+      break;
+
+    //Estados auxiliares
+
+    case RESET_FILTER:
+      return {
+        ...state,
+        pokemons: [],
+      };
+    case CLEAR_STATE:
+      return {
+        ...state,
+        pokemon: {},
       };
     default:
       return { ...state };

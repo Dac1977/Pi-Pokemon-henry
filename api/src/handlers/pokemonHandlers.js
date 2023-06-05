@@ -7,30 +7,29 @@ const {
 } = require("../controllers/pokemonControllers");
 
 // const getPokemonsHandler = async (req, res) => {
-//     const {name} = req.query;
-//     try{
-//     if(name) {
+//   const { name } = req.query;
+//   try {
+//     if (name) {
 //       const getByName = getApiInfo(name);
 //       console.log(getByName);
 //       res.status(200).json(getByName);
-//     }
-//     else {
+//     } else {
 //       const getAllPokemons = await getApiInfo();
 //       //console.log(getAllPokemons);
 //       res.status(200).json(getAllPokemons);
 //     }
-//   }catch(error){
-//     res.status(400).json({message:error.message});
+//   } catch (error) {
+//     res.status(400).json({ message: error.message });
 //   }
-//       //     res.status(404).json({message: error.message});
-//       // }
-//     //     res.status(200).json(getAllPokemons);
-//     // try{
-//     //     const getAllPokemons = await getApiInfo();
-//     //     res.status(200).json(getAllPokemons);
-//     // } catch(error){
-//     //     res.status(404).json({message: error.message});
-//     // }
+//     res.status(404).json({message: error.message});
+// }
+//     res.status(200).json(getAllPokemons);
+// try{
+//     const getAllPokemons = await getApiInfo();
+//     res.status(200).json(getAllPokemons);
+// } catch(error){
+//     res.status(404).json({message: error.message});
+// }
 // };
 
 const getPokemonHandler = async (req, res) => {
