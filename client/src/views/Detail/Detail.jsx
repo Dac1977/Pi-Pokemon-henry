@@ -35,7 +35,7 @@ const Detail = () => {
         <h2>Weight : {detail.weight}</h2>
         <h2>
           Types : {"  "}
-          {!detail.createdInDb ? detail.types + " " : detail.Types + " "}
+          {!detail.InDb ? detail.types + " " : detail.Types + " "}
         </h2>
       </div>
       <Link to={"/home"} onClick={() => reset()} className="">

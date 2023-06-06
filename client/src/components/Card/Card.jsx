@@ -7,7 +7,7 @@ const Card = (props) => {
       {/* <p>image: <img src={props.image} alt=""/></p> */}
 
       <img
-        src={!props.InDb ? props.image + " " : props.image + " "}
+        src={!props.image ? props.imagen + " " : props.image + " "}
         alt={props.name}
       ></img>
       <div className="">
