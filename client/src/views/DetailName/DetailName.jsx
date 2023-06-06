@@ -1,15 +1,29 @@
 import React from "react";
+import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPokemon, getPokemonByName, getPokemons } from "../../redux/actions";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  getPokemon,
+  getPokemonByName,
+  getPokemons,
+  resetState,
+} from "../../redux/actions";
 
-export const DetailName = () => {
+const DetailName = () => {
+  // console.log(id);
   let { name } = useParams();
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.pokemons);
+  const reset = () => {
+    dispatch(resetState());
+  };
+
+  //console.log(name);
+  // console.log(detail);
   useEffect(() => {
-    dispatch(getPokemons(name));
+    dispatch(getPokemonByName(name));
   }, [dispatch, name]);
 
   return (
@@ -32,6 +46,9 @@ export const DetailName = () => {
           {!detail.createdInDb ? detail.types + " " : detail.Types + " "}
         </h2>
       </div>
+      <Link to={"/home"} onClick={() => reset()} className="">
+        Back to Home
+      </Link>
     </>
   );
 };

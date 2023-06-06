@@ -1,9 +1,11 @@
+
 .container {
-    /* background-image: url('../../resources/Elementos/elementos_pagina/Fondo\ Ejemplo\ Patrón\ 1.jpg'); */
-    background-repeat: repeat-x;
-    background-attachment: fixed;
+    
+    /* background-image: url('../../Imagenes/fondoHome.jpeg');
+    background-attachment: fixed; 
     background-size: cover;
-    background-position: center center;
+    background-size: 100%;
+    background-position: center center; */
     padding: 2%;
     display: flex;
     flex-flow: column wrap;
@@ -11,17 +13,18 @@
 }
 
 
-
 .containerNav {
-    flex: 75px;
-    width: 85%;
-    /* height: 50px; */
-    display: block;
+    /* flex: 85px; */
+    width: 95%;
+    height: 70px;
+    display:flexbox;
     line-height: 25px;
 }
 
 .containerPagination {
     display: flex;
+    justify-items: center;
+    align-items: center;
 
 }
 

@@ -21,9 +21,11 @@ const SearchBar = () => {
     );
     console.log("este es mach: " + match.name);
     if (match) {
-      dispatch(getPokemonByName(match.name));
+      dispatch(getPokemonByName(match)).then((result) => {
+        console.log(result);
+      });
 
-      history.push(`/pokemons/${match.name}`);
+      history.push(`/detail/${match.name}`);
       setName("");
     } else {
       alert("There's no Pokemons with that Name. Try again");

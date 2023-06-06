@@ -1,0 +1,44 @@
+.landing{
+    background-image: url('../../Imagenes/fondoLanding.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.button_enter {
+    position: relative;
+    margin: 0 auto;
+    top: 200px;
+    letter-spacing: 4px;
+    font-family:Arial, Helvetica, sans-serif;
+    border: 0;
+    border-radius: 8px;
+    color: #ffffff;
+    display: flexbox;
+    font-size: 18px;
+    padding: 16px 0px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button_span {
+    background-color: #f01212;
+    padding: 16px 24px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+.button_span:hover {
+    background: #111;
+}
+
+.button_enter:active {
+    transform: scale(0.9);
+}

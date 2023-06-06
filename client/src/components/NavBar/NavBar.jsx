@@ -49,8 +49,9 @@ const NavBar = ({ setPage, types }) => {
 
   return (
     <div className={style.mainContainer}>
-      <Link to="/Home">Home</Link>
-      <Link to="/form">Form</Link>
+      <Link to="/Home" className={style.link}>
+        Home
+      </Link>
       <div className="">
         <SearchBar />
       </div>
@@ -71,7 +72,7 @@ const NavBar = ({ setPage, types }) => {
           <option value="AttackDesc">ORDER by 🡣 ATTACK</option>
         </select>
       </div>
-      {/* <div className="">
+      <div className="">
         <label htmlFor="types">TYPES</label>
         <select onChange={(e) => handleType(e)} name="types">
           <option value="types" hidden>
@@ -86,7 +87,7 @@ const NavBar = ({ setPage, types }) => {
               ))
             : null}
         </select>
-      </div> */}
+      </div>
       <div className="">
         <label>FILTERS</label>
         <select onChange={(e) => handleCreated(e)}>
@@ -98,11 +99,11 @@ const NavBar = ({ setPage, types }) => {
       <button className="" onClick={() => reset()}>
         RESET FILTERS
       </button>
-      {/* <div className="">
-        <button className="" onClick={() => history.push("/create")}>
+      <div className="">
+        <button className="" onClick={() => history.push("/FORM")}>
           <header>CREATE</header>
         </button>
-      </div> */}
+      </div>
     </div>
   );
 };

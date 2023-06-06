@@ -22,7 +22,7 @@ const Detail = () => {
     <>
       <h1>Esta es la vista de Detail</h1>
       <div>
-        <img src={detail.img} alt="" width={200} height={200} />
+        <img src={detail.image} alt="" width={200} height={200} />
         <h1>Name: {detail.name}</h1>
         <h3>ID: {detail.id}</h3>
       </div>

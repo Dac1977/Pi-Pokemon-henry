@@ -81,39 +81,38 @@ export const postPoke = (payload) => {
 export const getPokemonByName = (name) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
+      const response = (await axios.get(
         `http://localhost:3001/pokemons?name=${name}`
         //urlPokemons + name
-      );
+      )).data;
       return dispatch({
         type: GET_POKEMON_BY_NAME,
-        //type: GET_POKEMON_BY_ID,
-        payload: response.data,
+        payload: name,
       });
     } catch (error) {
-      return console.log("Not found", error.message);
+      return alert("Not found", error.message);
     }
   };
 };
-// export const getPokemonTypes = () => {
-//   return async function (dispatch) {
-//     try {
-//       const response = await axios.get(
-//         //"http://localhost:3001/types"
-//         urlTypes
-//       );
-//       return dispatch({
-//         type: GET_POKEMON_BY_TYPE,
-//         payload: response.data,
-//       });
-//     } catch (error) {
-//       return console.log(
-//         "Something went wrong. Please try again.",
-//         error.message
-//       );
-//     }
-//   };
-// };
+export const getPokemonTypes = () => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        "http://localhost:3001/types"
+        //urlTypes
+      );
+      return dispatch({
+        type: GET_POKEMON_BY_TYPE,
+        payload: response.data,
+      });
+    } catch (error) {
+      return console.log(
+        "Something went wrong. Please try again.",
+        error.message
+      );
+    }
+  };
+};
 
 export const orderByName = (name) => {
   return {

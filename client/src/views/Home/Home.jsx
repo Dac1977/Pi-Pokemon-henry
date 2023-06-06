@@ -32,11 +32,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    // <>
-    //   <h1>Esta es la vista de Home</h1>
-    //   <CardsContainer />
-    // </>
-    <div className="">
+    <div className={styles.container}>
       {pokemons.length > 0 && (
         <div className="">
           <NavBar setPage={setPage} types={types} showPerPage={showPerPage} />
@@ -44,6 +40,7 @@ const Home = () => {
       )}
       {shownPokemons.length > 0 ? (
         <div className={styles.conteinerPagination}>
+          <br />
           <Pagination
             showPerPage={showPerPage}
             pokemons={pokemons.length}

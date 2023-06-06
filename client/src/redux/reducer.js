@@ -6,6 +6,7 @@ import {
   GET_TYPES,
   POST_POKE,
   GET_POKEMON_BY_NAME,
+  GET_POKEMON_BY_TYPE,
   ORDER_BY_ATTACK,
   ORDER_BY_NAME,
   FILTER_BY_TYPE,
@@ -54,6 +55,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemon: action.payload,
       };
+      case GET_POKEMON_BY_TYPE: 
+        return {
+        ...state, types: action.payload
+    }
     //Ordenamientos
 
     case ORDER_BY_NAME:
@@ -90,30 +95,30 @@ const rootReducer = (state = initialState, action) => {
 
     //Filtros
 
-    case FILTER_BY_TYPE:
-      let type = action.payload;
-      const filteredBy = state.pokemons.filter((p) => p.types.includes(type));
-      if (filteredBy.length > 0) {
+    case FILTER_BY_TYPE: 
+    let type = action.payload;
+    const filteredBy = state.pokemons.filter(p=> p.types.includes(type))
+    if(filteredBy.length > 0){
         return {
-          ...state,
-          pokemons: filteredBy,
-        };
-      } else {
+            ...state,
+            pokemons: filteredBy
+        }
+    } else {
         return {
-          ...state,
-          pokemons: state.pokemons,
-        };
-      }
+            ...state,
+            pokemons: state.pokemons
+        }
+    }
 
     case FILTER_BY_CREATED:
       if (action.payload === "created") {
-        let createds = state.backUp.filter((p) => p.createdInDb);
+        let createds = state.backUp.filter((p) => p.InDb);
         return {
           ...state,
           pokemons: createds,
         };
       } else if (action.payload === "api") {
-        let api = state.filtersApi.filter((p) => !p.createdInDb);
+        let api = state.filtersApi.filter((p) => !p.InDb);
         return {
           ...state,
           pokemons: api,
