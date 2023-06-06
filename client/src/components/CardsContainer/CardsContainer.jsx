@@ -12,7 +12,7 @@ const CardsContainer = () => {
         return (
           <Card
             key={pokemon.id}
-            image={!pokemon.InDb ? pokemon.image + " " : pokemon.img + " "}
+            image={!pokemon.InDb ? pokemon.imagen + " " : pokemon.img + " "}
             name={pokemon.name}
             types={!pokemon.InDb ? pokemon.types + " " : pokemon.Types + " "}
           />
