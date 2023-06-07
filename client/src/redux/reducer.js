@@ -36,11 +36,11 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, pokemons: action.payload };
     case GET_POKEMON:
       return { ...state, pokemon: action.payload };
-    case GET_TYPES:
-      return {
-        ...state,
-        types: action.payload,
-      };
+    // case GET_TYPES:
+    //   return {
+    //     ...state,
+    //     types: action.payload,
+    //   };
     case POST_POKE:
       return {
         ...state,
@@ -97,7 +97,7 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_BY_TYPE: 
     let type = action.payload;
-    const filteredBy = state.pokemons.filter(p=> p.types.includes(type))
+    const filteredBy = state.pokemons.filter(p=>p.types == type);
     if(filteredBy.length > 0){
         return {
             ...state,
