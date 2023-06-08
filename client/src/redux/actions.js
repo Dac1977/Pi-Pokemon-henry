@@ -81,11 +81,12 @@ export const postPoke = (payload) => {
 export const getPokemonByName = (name) => {
   return async function (dispatch) {
     try {
-      const response = (await axios.get(
-        `http://localhost:3001/pokemons?name=${name}`
-        //urlPokemons + name
-      )).data;
-      return dispatch({
+      //const response = (await axios.get(
+      //   `http://localhost:3001/pokemons?name=${name}`
+      //   //urlPokemons + name
+      // )).data;
+      //return
+      dispatch({
         type: GET_POKEMON_BY_NAME,
         payload: name,
       });

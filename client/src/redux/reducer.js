@@ -3,7 +3,6 @@ import {
   GET_POKEMON,
   GET_POKEMONS,
   GET_POKEMON_BY_ID,
-  GET_TYPES,
   POST_POKE,
   GET_POKEMON_BY_NAME,
   GET_POKEMON_BY_TYPE,
@@ -55,10 +54,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemon: action.payload,
       };
-      case GET_POKEMON_BY_TYPE: 
-        return {
-        ...state, types: action.payload
-    }
+    case GET_POKEMON_BY_TYPE:
+      return {
+        ...state,
+        types: action.payload,
+      };
     //Ordenamientos
 
     case ORDER_BY_NAME:
@@ -95,20 +95,20 @@ const rootReducer = (state = initialState, action) => {
 
     //Filtros
 
-    case FILTER_BY_TYPE: 
-    let type = action.payload;
-    const filteredBy = state.pokemons.filter(p=>p.types == type);
-    if(filteredBy.length > 0){
+    case FILTER_BY_TYPE:
+      let type = action.payload;
+      const filteredBy = state.pokemons.filter((p) => p.types == type);
+      if (filteredBy.length > 0) {
         return {
-            ...state,
-            pokemons: filteredBy
-        }
-    } else {
+          ...state,
+          pokemons: filteredBy,
+        };
+      } else {
         return {
-            ...state,
-            pokemons: state.pokemons
-        }
-    }
+          ...state,
+          pokemons: state.pokemons,
+        };
+      }
 
     case FILTER_BY_CREATED:
       if (action.payload === "created") {

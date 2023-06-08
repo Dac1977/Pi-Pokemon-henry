@@ -2,7 +2,7 @@ import React from "react";
 //import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, getTypes, getPokemonTypes } from "../../redux/actions";
+import { getPokemonTypes } from "../../redux/actions";
 import Card from "../../components/Card/Card";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";

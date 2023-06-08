@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import { Home, Landing, Detail, Form } from "./views";
-import DetailName from "./views/DetailName/DetailName";
+//import DetailName from "./views/DetailName/DetailName";
 import { Route } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
+//import NavBar from "./components/NavBar/NavBar";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
@@ -25,9 +25,9 @@ function App() {
       <Route path="/detail/:id">
         <Detail />
       </Route>
-      <Route path="/detailname/:name">
+      {/* <Route path="/detailname/:name">
         <DetailName />
-      </Route>
+      </Route> */}
     </div>
   );
 }
