@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import { getPokemon, getPokemonById, resetState } from "../../redux/actions";
+import { getPokemonById, resetState } from "../../redux/actions";
 
 const Detail = () => {
   let { id } = useParams();
@@ -22,7 +22,12 @@ const Detail = () => {
     <>
       <h1>Esta es la vista de Detail</h1>
       <div>
-        <img src={detail.image ? detail.image :detail.img} alt="" width={200} height={200} />
+        <img
+          src={detail.image ? detail.image : detail.img}
+          alt=""
+          width={200}
+          height={200}
+        />
         <h1>Name: {detail.name}</h1>
         <h3>ID: {detail.id}</h3>
       </div>
