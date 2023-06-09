@@ -3,11 +3,13 @@ import style from "./Card.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const Card = (props) => {
   return (
-    <div className={style.card}>
-      {/* <p>image: <img src={props.image} alt=""/></p> */}
+    <div className={style.card} key={props.id}>
+      {/* <p>
+        image: <img src={props.image} alt="" />
+      </p> */}
 
       <img
-        src={!props.image ? props.imagen + " " : props.image + " "}
+        src={!props.InDb ? props.image : props.imagen}
         alt={props.name}
       ></img>
       <div className="">
@@ -17,7 +19,7 @@ const Card = (props) => {
       </div>
       <h2>name: {props.name}</h2>
       {/* <p>types: {props.types}</p> */}
-      <h2>Types : {props.types} </h2>
+      <h2>Types : {props.types}</h2>
     </div>
   );
 };

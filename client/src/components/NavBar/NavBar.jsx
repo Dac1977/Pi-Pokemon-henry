@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 import {
   getAllPokemons,
+  getPokemons,
   orderByAttack,
   orderByName,
   filterByCreated,
@@ -41,7 +42,7 @@ const NavBar = ({ setPage, types }) => {
   };
 
   const reset = () => {
-    dispatch(getAllPokemons());
+    dispatch(getPokemons());
     setPage(1);
     history.push("/home");
   };

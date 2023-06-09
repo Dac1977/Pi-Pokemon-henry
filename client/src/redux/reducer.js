@@ -24,13 +24,13 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_POKEMONS:
-      return {
-        ...state,
-        pokemons: action.payload,
-        filtersApi: action.payload,
-        backUp: action.payload,
-      };
+    // case GET_ALL_POKEMONS:
+    //   return {
+    //     ...state,
+    //     pokemons: action.payload,
+    //     filtersApi: action.payload,
+    //     backUp: action.payload,
+    //   };
     case GET_POKEMONS:
       return { ...state, pokemons: action.payload };
     case GET_POKEMON:

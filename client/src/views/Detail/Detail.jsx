@@ -23,7 +23,13 @@ const Detail = () => {
       <h1>Esta es la vista de Detail</h1>
       <div>
         <img
-          src={detail.image ? detail.image : detail.img}
+          src={
+            detail.image
+              ? detail.image
+              : !detail.img
+              ? detail.imagen
+              : detail.img
+          }
           alt=""
           width={200}
           height={200}

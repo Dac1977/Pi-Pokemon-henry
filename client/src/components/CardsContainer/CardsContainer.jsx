@@ -11,10 +11,10 @@ const CardsContainer = () => {
       {pokemons.map((pokemon) => {
         return (
           <Card
-            key={pokemon.id}
-            image={!pokemon.InDb ? pokemon.imagen + " " : pokemon.img + " "}
-            name={pokemon.name}
-            types={!pokemon.InDb ? pokemon.types + " " : pokemon.Types + " "}
+          // key={pokemon.id}
+          // image={!pokemon.InDb ? pokemon.imagen + " " : pokemon.img + " "}
+          // name={pokemon.name}
+          // types={!pokemon.InDb ? pokemon.types + " " : pokemon.Types + " "}
           />
         );
       })}
