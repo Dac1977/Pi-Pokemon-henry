@@ -1,7 +1,7 @@
 import {
   GET_ALL_POKEMONS,
   GET_POKEMON,
-  GET_POKEMONS,
+  //GET_POKEMONS,
   GET_POKEMON_BY_ID,
   POST_POKE,
   GET_POKEMON_BY_NAME,
@@ -24,15 +24,15 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case GET_ALL_POKEMONS:
-    //   return {
-    //     ...state,
-    //     pokemons: action.payload,
-    //     filtersApi: action.payload,
-    //     backUp: action.payload,
-    //   };
-    case GET_POKEMONS:
-      return { ...state, pokemons: action.payload };
+    case GET_ALL_POKEMONS:
+      return {
+        ...state,
+        pokemons: action.payload,
+        filtersApi: action.payload,
+        backUp: action.payload,
+      };
+    // case GET_POKEMONS:
+    //   return { ...state, pokemons: action.payload };
     case GET_POKEMON:
       return { ...state, pokemon: action.payload };
     // case GET_TYPES:
@@ -97,7 +97,9 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_BY_TYPE:
       let type = action.payload;
-      const filteredBy = state.pokemons.filter((p) => p.types == type);
+      const filteredBy = state.pokemons.filter(
+        (p) => p.types == type || p.Types == type
+      );
       if (filteredBy.length > 0) {
         return {
           ...state,

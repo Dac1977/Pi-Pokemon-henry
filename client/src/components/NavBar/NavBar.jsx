@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 import {
   getAllPokemons,
-  getPokemons,
+  //getPokemons,
   orderByAttack,
   orderByName,
   filterByCreated,
@@ -42,16 +42,16 @@ const NavBar = ({ setPage, types }) => {
   };
 
   const reset = () => {
-    dispatch(getPokemons());
+    dispatch(getAllPokemons());
     setPage(1);
     history.push("/home");
   };
 
   return (
     <div className={style.mainContainer}>
-      <Link to="/Home" className={style.link}>
+      {/* <Link to="/Home" className={style.link}>
         Home
-      </Link>
+      </Link> */}
       <div className="">
         <SearchBar />
       </div>

@@ -18,22 +18,22 @@ export const RESET_FILTER = "RESET_FILTER";
 const urlPokemons = "http://localhost:3001/pokemons/";
 const urlTypes = "http://localhost:3001/types";
 
-// export const getAllPokemons = () => {
-//   return async function (dispatch) {
-//     try {
-//       const response = await axios.get("http://localhost:3001/pokemons");
-//       return dispatch({
-//         type: GET_ALL_POKEMONS,
-//         payload: response.data,
-//       });
-//     } catch (error) {
-//       return console.log(
-//         "Something went wrong. Please try again.",
-//         error.message
-//       );
-//     }
-//   };
-// };
+export const getAllPokemons = () => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/pokemons");
+      return dispatch({
+        type: GET_ALL_POKEMONS,
+        payload: response.data,
+      });
+    } catch (error) {
+      return console.log(
+        "Something went wrong. Please try again.",
+        error.message
+      );
+    }
+  };
+};
 
 export const getPokemons = () => {
   return async function (dispatch) {

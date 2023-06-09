@@ -8,7 +8,7 @@ import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
 import NavBar from "../../components/NavBar/NavBar";
 import styles from "./Home.module.css";
-import { getAllPokemons, getPokemons } from "../../redux/actions";
+import { getAllPokemons } from "../../redux/actions";
 const Home = () => {
   //estados
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Home = () => {
   };
   //efectos
   useEffect(() => {
-    dispatch(getPokemons());
+    dispatch(getAllPokemons());
     dispatch(getPokemonTypes());
   }, [dispatch]);
 
