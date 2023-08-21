@@ -20,18 +20,9 @@ const urlTypes = "http://localhost:3001/types";
 
 export const getAllPokemons = () => {
   return async function (dispatch) {
-    try {
-      const response = await axios.get("http://localhost:3001/pokemons");
-      return dispatch({
-        type: GET_ALL_POKEMONS,
-        payload: response.data,
-      });
-    } catch (error) {
-      return console.log(
-        "Something went wrong. Please try again.",
-        error.message
-      );
-    }
+    const apiData = await axios.get(urlPokemons);
+    const allpokemons = apiData.data;
+    dispatch({ type: GET_ALL_POKEMONS, payload: allpokemons });
   };
 };
 

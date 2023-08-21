@@ -48,19 +48,24 @@ const Form = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault(); //evita que se recarge la pagina
-    dispatch(postPoke(form));
-    alert("Personaje creado");
-    setForm({
-      name: "",
-      imagen: "",
-      hp: "",
-      attack: "",
-      defense: "",
-      weight: "",
-      height: "",
-      speed: "",
-      types: [],
-    });
+    try {
+      dispatch(postPoke(form));
+      alert("Personaje creado");
+      setForm({
+        name: "",
+        imagen: "",
+        hp: "",
+        attack: "",
+        defense: "",
+        weight: "",
+        height: "",
+        speed: "",
+        types: [],
+      });
+    } catch {
+      alert("Error. Please try again");
+      setForm({});
+    }
   };
   const handlerSelect = (event) => {
     setForm({
